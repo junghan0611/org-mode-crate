@@ -1,5 +1,8 @@
 #+OPTIONS: toc:nil
 
++ norang 님 설정 기반으로 모던하게 개선한 버전
++ [[https://www.youtube.com/watch?v=KZoQ4EkfDPo][Emacs Meet up Session II: Org Agenda - Vedang - YouTube]] 영상에 자세히 소개
+
 * Org Mode Crate
 
 This repository contains my configuration for Org Mode.
@@ -50,6 +53,10 @@ about it.
 #+end_src
 
 
+*** TODO Install in Spacemacs emacs
+[2023-12-05 Tue 08:57]
+
+
 ** Workflow notes
 
 - Create and maintain as many files in your org-directory as you want.
@@ -63,6 +70,18 @@ about it.
     WORKING state, it automatically gets the =next= tag. Moving to any
     other state automatically removes this tag.
 - The following hotkeys are provided for quick tagging:
+
+- 조직 디렉터리에 원하는 만큼 파일을 만들고 관리하세요.
+  - 현재 저는 재귀적으로 로드되는 조직 파일을 처리하지 않으므로 조직 디렉터리는
+    평평한 구조여야 합니다.
+  - 작업은 다음과 같이 분류됩니다:
+    + 중요한 작업: 이러한 작업은 =중요=로 태그를 지정해야 합니다.
+  + 다음 작업: 특정 프로젝트에서 다음에 하고 싶은 일에 =다음= 태그를 붙입니다.
+    다음= 작업은 여러 개를 붙일 수 있지만, 이상적으로는 하나만 붙이는 것이
+    좋습니다. 작업이 작업 중 상태가 되면 자동으로 =다음= 태그가 붙습니다. 다른
+    상태로 이동하면 이 태그는 자동으로 제거됩니다.
+- 빠른 태그 지정을 위해 다음 단축키가 제공됩니다:
+
 #+begin_src emacs-lisp
   (setq org-tag-alist
         '(("next" . ?x)
