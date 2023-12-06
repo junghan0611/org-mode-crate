@@ -90,14 +90,16 @@ Check-ins and feedback are also stored here."))
 ;;; correct location later.
 (push `("h" "Habit" entry
         (file org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/habit.capture.org")))
+        (file ,(expand-file-name
+                (concat org-directory "capture-templates/habit.capture.org"))))
       org-capture-templates)
 
 ;;; One-click Capture for replying to emails from notmuch. Creates a
 ;;; task to remind you that you need to reply to this email.
 (push `("r" "Respond to email" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/reply.capture.org"))
+        (file ,(expand-file-name
+                (concat org-directory "capture-templates/reply.capture.org")))
         :clock-in t
         :clock-resume t
         :immediate-finish t)
@@ -107,7 +109,8 @@ Check-ins and feedback are also stored here."))
 ;;; with `org-protocol', or as a stand-alone to capture links.
 (push `("w" "Website Link Immediate Capture" entry
         (file+olp org-default-notes-file "Links Captured from the Browser")
-        (file ,(expand-file-name "capture-templates/website.capture.org"))
+        (file ,(expand-file-name
+                (concat org-directory "capture-templates/website.capture.org")))
         :immediate-finish t)
       org-capture-templates)
 
@@ -115,7 +118,8 @@ Check-ins and feedback are also stored here."))
 ;;; out my browser 2/3 times a week.
 (push `("l" "Website Link Pinboard Capture" entry
         (file+olp org-default-notes-file "Links Captured from the Browser")
-        (file ,(expand-file-name "capture-templates/pinboard.capture.org"))
+        (file ,(expand-file-name
+                (concat org-directory "capture-templates/pinboard.capture.org")))
         :clock-in t
         :clock-resume t
         :immediate-finish t)
@@ -125,7 +129,7 @@ Check-ins and feedback are also stored here."))
 ;;; gets out of your way.
 (push `("t" "Todo Immediate Finish" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/todo.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/todo.org")))
         :clock-in t
         :clock-resume t
         :immediate-finish t)
@@ -136,7 +140,7 @@ Check-ins and feedback are also stored here."))
 ;; Capture feedback for people I am working with
 (push `("up" "Feedback for People I'm working with" item
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/feedback.others.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/feedback.others.capture.org")))
         :clock-in t
         :clock-resume t
         :empty-lines 1)
@@ -144,7 +148,7 @@ Check-ins and feedback are also stored here."))
 ;; Capture a Jira task related to work
 (push `("ut" "Jira Task" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/jira.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/jira.capture.org")))
         :clock-in t
         :clock-resume t)
       org-capture-templates)
@@ -152,7 +156,7 @@ Check-ins and feedback are also stored here."))
 ;; documentation or review code.
 (push `("ud" "Documentation Task" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/review.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/review.capture.org")))
         :clock-in t
         :clock-resume t)
       org-capture-templates)
@@ -160,7 +164,7 @@ Check-ins and feedback are also stored here."))
 ;; future)
 (push `("un" "Upcoming Meeting" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/meeting.upcoming.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/meeting.upcoming.capture.org")))
         :prepend t
         :clock-in t
         :clock-resume t
@@ -170,7 +174,7 @@ Check-ins and feedback are also stored here."))
 ;; happened.
 (push `("um" "Current / Previous Meeting" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/meeting.ongoing.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/meeting.ongoing.capture.org")))
         :prepend t
         :clock-in t
         :clock-resume t)
@@ -179,7 +183,7 @@ Check-ins and feedback are also stored here."))
 ;; expanded into actual projects later.
 (push `("us" "Suggestions related to Work" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/suggestion.capture.org"))
+        (file ,(expand-file-nam (concat org-directory "capture-templates/suggestion.capture.org")))
         :prepend t
         :clock-in t
         :clock-resume t)
@@ -190,7 +194,7 @@ Check-ins and feedback are also stored here."))
 ;;; move into other more refined notes later.
 (push `("sc" "Ongoing Check In or Journaling" entry
         (file+olp+datetree org-journal-file)
-        (file ,(expand-file-name "capture-templates/journaling.checkin.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/journaling.checkin.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -201,7 +205,7 @@ Check-ins and feedback are also stored here."))
 ;;; planning and therefore at productivity.
 (push `("ss" "The Start of Day Planning Routine" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/workday.start.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/workday.start.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -209,7 +213,7 @@ Check-ins and feedback are also stored here."))
       org-capture-templates)
 (push `("se" "The End of Day Reflection Routine" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/workday.end.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/workday.end.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -217,18 +221,20 @@ Check-ins and feedback are also stored here."))
       org-capture-templates)
 (push `("sn" "The Next Day Intentions Routine" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/workday.next.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/workday.next.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
         :empty-lines 1)
       org-capture-templates)
+
 ;;; Capture weight / food. This seems hard to get into a laptop habit.
-;;; This is the kind of quantitative life that a mobile solution would
-;;; have helped with.
+;; This is the kind of quantitative life that a mobile solution would have
+;; helped with.
+
 (push `("sw" "Weight Check In" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/bodylog.weight.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/bodylog.weight.org")))
         :clock-in t
         :clock-resume t
         :immediate-finish t
@@ -236,7 +242,7 @@ Check-ins and feedback are also stored here."))
       org-capture-templates)
 (push `("sf" "Food Check In" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/bodylog.food.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/bodylog.food.org")))
         :clock-in t
         :clock-resume t
         :immediate-finish t
@@ -244,16 +250,17 @@ Check-ins and feedback are also stored here."))
       org-capture-templates)
 (push `("sd" "DT Check In" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/bodylog.dt.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/bodylog.dt.org")))
         :clock-in t
         :clock-resume t
         :immediate-finish t
         :empty-lines 1)
       org-capture-templates)
+
 ;;; Capture microblogs
 (push `("sm" "New Microblogging entry" entry
         (file+olp+datetree org-blogpost-file "Microblogging")
-        (file ,(expand-file-name "capture-templates/microblog.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/microblog.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -265,7 +272,7 @@ Check-ins and feedback are also stored here."))
 ;;; Capture a decision that you've taken, for review and reflection later.
 (push `("Td" "Decision Journal" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/thinking.decision.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.decision.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -274,7 +281,7 @@ Check-ins and feedback are also stored here."))
 ;;; Create a Current Reality Tree for a problem
 (push `("Tc" "Current Reality Tree" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/thinking.crt.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.crt.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -283,7 +290,7 @@ Check-ins and feedback are also stored here."))
 ;;; Create an Evaporating Cloud for a problem
 (push `("Te" "Evaporating Cloud" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/thinking.ec.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.ec.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -292,7 +299,7 @@ Check-ins and feedback are also stored here."))
 ;;; Create a Future Reality Tree for a problem
 (push `("Tf" "Future Reality Tree" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/thinking.frt.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.frt.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -301,7 +308,7 @@ Check-ins and feedback are also stored here."))
 ;;; Create a Prerequisite Tree for a problem
 (push `("Tp" "Prerequisite Tree" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/thinking.prt.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.prt.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -310,7 +317,7 @@ Check-ins and feedback are also stored here."))
 ;;; Create a Transition Tree for a problem
 (push `("Tt" "Transition Tree" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-name "capture-templates/thinking.trt.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.trt.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -322,7 +329,7 @@ Check-ins and feedback are also stored here."))
 ;;; Capture a new idea for sketching out / thinking through
 (push `("cb" "Business Canvas" entry
         (id "D0BB89EB-5496-478A-BBDE-C29EC9EFFA94")
-        (file ,(expand-file-name "capture-templates/business.canvas.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/business.canvas.capture.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -332,7 +339,7 @@ Check-ins and feedback are also stored here."))
 ;;; the current clocking task.
 (push `("cp" "Customer Persona" entry
         (clock)
-        (file ,(expand-file-name "capture-templates/business.customer.persona.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/business.customer.persona.capture.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -342,7 +349,7 @@ Check-ins and feedback are also stored here."))
 ;;; always captured in the current clocking task
 (push `("cj" "Customer Journey" entry
         (clock)
-        (file ,(expand-file-name "capture-templates/business.customer.journey.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/business.customer.journey.capture.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -351,7 +358,7 @@ Check-ins and feedback are also stored here."))
 ;;; Capture a decision that you've taken, for review and reflection later.
 (push `("cd" "Business Decision Journal" entry
         (id "B509F345-B648-43E9-99A1-F48134FB27B5")
-        (file ,(expand-file-name "capture-templates/thinking.decision.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/thinking.decision.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -360,7 +367,7 @@ Check-ins and feedback are also stored here."))
 ;;; Capture check-ins and thoughts quickly, about your day-to-day work
 (push `("cc" "Company Check-Ins" entry
         (file+olp+datetree org-company-file "Meeting Notes")
-        (file ,(expand-file-name "capture-templates/journaling.checkin.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/journaling.checkin.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -369,7 +376,7 @@ Check-ins and feedback are also stored here."))
 ;;; The monthly newsletter to send to investors, friends and mentors
 (push `("cn" "Company Newsletters" entry
         (id "BEB8583B-8B92-4771-8B06-BC88D417055F")
-        (file ,(expand-file-name "capture-templates/business.updates.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/business.updates.capture.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -378,7 +385,7 @@ Check-ins and feedback are also stored here."))
 ;;; Random ideas are the best ideas
 (push `("cr" "Company Random Ideas" entry
         (id "0F32C926-F7E9-453F-9DD9-5DC12AF831DB")
-        (file ,(expand-file-name "capture-templates/business.random.capture.org"))
+        (file ,(expand-file-name (concat org-directory "capture-templates/business.random.capture.org")))
         :prepend nil
         :clock-in t
         :clock-resume t
@@ -419,20 +426,69 @@ Check-ins and feedback are also stored here."))
         (sequence "PROJECT(p)" "|" "MEETING(m!/!)" "SOMEDAY(S)" "RESTRUCTURED(r@/!)")
         (sequence "TOREAD(R!/!)" "READING(E!/!)" "REREAD(A!/!)""|" "READ(D!/!)")))
 
+;; (setq org-todo-keyword-faces
+;;       '(("TODO" :foreground "red" :weight bold)
+;;         ("WORKING" :foreground "orange" :weight bold)
+;;         ("DONE" :foreground "SeaGreen4" :weight bold)
+;;         ("FOLLOWUP" :foreground "IndianRed4" :weight bold)
+;;         ("WAITING" :foreground "lightblue" :weight bold)
+;;         ("DELEGATED" :foreground "IndianRed1" :weight bold)
+;;         ("CANCELLED" :foreground "SeaGreen4" :weight bold)
+;;         ("PROJECT" :foreground "light slate blue" :weight bold)
+;;         ("MEETING" :foreground "forest green" :weight bold)
+;;         ("SOMEDAY" :foreground "magenta" :weight bold)
+;;         ("RESTRUCTURED" :foreground "SeaGreen4" :weight bold)))
+
+(defface my/org-bold-todo
+  '((t :inherit (bold org-todo)))
+  "Face for bold TODO-type Org keywords.")
+
+(defface my/org-bold-done
+  '((t :inherit (bold org-done)))
+  "Face for bold DONE-type Org keywords.")
+
+(defface my/org-bold-next
+  '((t :inherit (bold org-todo) :foreground "royal blue" ))
+  "Face for bold NEXT-type Org keywords.")
+
+(defface my/org-bold-shadow
+  '((t :inherit (bold shadow)))
+  "Face for bold and `shadow' Org keywords.")
+
+(defface my/org-todo-special
+  '((t :inherit (font-lock-keyword-face bold org-todo)))
+  "Face for special TODO-type Org keywords.")
 
 (setq org-todo-keyword-faces
-      '(("TODO" :foreground "red" :weight bold)
-        ("WORKING" :foreground "orange" :weight bold)
-        ("DONE" :foreground "SeaGreen4" :weight bold)
-        ("FOLLOWUP" :foreground "IndianRed4" :weight bold)
-        ("WAITING" :foreground "lightblue" :weight bold)
-        ("DELEGATED" :foreground "IndianRed1" :weight bold)
-        ("CANCELLED" :foreground "SeaGreen4" :weight bold)
-        ("PROJECT" :foreground "light slate blue" :weight bold)
-        ("MEETING" :foreground "forest green" :weight bold)
-        ("SOMEDAY" :foreground "magenta" :weight bold)
-        ("RESTRUCTURED" :foreground "SeaGreen4" :weight bold)))
+      '(("TODO" . my/org-bold-todo)
+        ("FOLLOWUP" . my/org-bold-todo)
+        ("TOREAD" . my/org-bold-todo)
 
+        ("WORKING" . my/org-bold-next)
+        ("READING" . my/org-bold-next)
+        ("REREAD" . my/org-bold-next)
+
+        ("DONE" . my/org-bold-done)
+        ("READ" . my/org-bold-done)
+        ("CANCELLED" . my/org-bold-done)
+        ("DELEGATED" . my/org-bold-done)
+
+        ("MEETING" . my/org-todo-special)
+        ("PROJECT" . my/org-todo-special)
+        ("SOMEDAY" . my/org-todo-special)
+
+        ("WAITING" . my/org-bold-shadow)
+        ("RESTRUCTURED" . my/org-bold-shadow)
+        )
+      )
+
+(setq org-priority-faces
+      '((?A . error)
+        (?B . warning)
+        (?C . warning)
+        (?D . success)
+        (?E . success)
+        ))
 
 ;; Changing State should trigger following Tag changes
 (setq org-todo-state-tags-triggers
