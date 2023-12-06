@@ -183,7 +183,7 @@ Check-ins and feedback are also stored here."))
 ;; expanded into actual projects later.
 (push `("us" "Suggestions related to Work" entry
         (file+olp+datetree org-default-notes-file)
-        (file ,(expand-file-nam (concat org-directory "capture-templates/suggestion.capture.org")))
+        (file ,(expand-file-name (concat org-directory "capture-templates/suggestion.capture.org")))
         :prepend t
         :clock-in t
         :clock-resume t)
